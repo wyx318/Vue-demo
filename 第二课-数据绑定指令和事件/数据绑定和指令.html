@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数据绑定和指令事件</title>
+</head>
+<body>
+<div id="app">
+	
+	<!--	 文本插值中 可以进行一些简单的运算 表达式进行简单的运算 、 三元运算等-->
+	
+	{{msg}} <br>
+	{{6+6-3}} ----可以进行一些简单的运算 <br>
+	{{6 > 5 ? msg : a }} ---三元运算
+</div>
+<!--、环境 搭建-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    //element 用于指定页面中已经存在的DOM元素，挂载到DOM中，也可以是CSS
+    el: "#app",
+    data: {
+      //双向绑定
+      msg: "vue开始复习了",
+      a: 'app中的中的属性 直接通过app.就可以直接访问'
+    },
+    created: () => {
+      alert("我是vue实例 创建完成，还未挂载到DOM ")
+    },
+    mounted: () => {
+      alert("我是vue实例 已经挂载到DOM ")
+    }
+  })
+  // 访问vue 实例属性
+  console.log(app.$el)
+  // console.log(app.$data.msg)
+  //	访问data中的属性
+  console.log(app.a);
+  console.log(app.msg)
+</script>
+</html>
