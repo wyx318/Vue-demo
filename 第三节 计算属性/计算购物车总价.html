@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性</title>
+</head>
+<body>
+<div id="app">
+	购物车 ：总价
+	{{prices}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  //需求 计算购物车中的 商品价格
+  var app = new Vue({
+    el: '#app',
+    data: {
+      //第一个 购物车
+      package1: [
+        {
+          name: 'ipone10',
+          price: 6333,
+          count: 2
+        }
+      ],
+      // 第二个 购物车
+      package2: [
+        {
+          name: 'ipone0',
+          price: 6000,
+          count: 4
+        }
+      ]
+    },
+    computed: {
+      prices: function () {
+        var prices = 0;
+        for (var i = 0; i < this.package1.length; i++) {
+          prices += this.package1[i].price * this.package1[i].count
+        }
+        for (var j = 0; j < this.package2.length; j++) {
+          prices += this.package2[j].price * this.package2[j].count
+        }
+        return prices
+      }
+    }
+  })
+</script>
+</body>
+</html>
