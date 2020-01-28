@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>指令和事件 </title>
+	<style>
+		.transRed {
+			height: 30px;
+			width: 30px;
+			background: pink;
+			}
+	</style>
+</head>
+<body>
+<div id="dataApp">
+	指令和事件:-----
+	{{apple}} <br>
+	v-text指令 <br>
+	<span v-text="apple"></span>
+	<hr>
+	v-html指令 <br>
+	{{banana}} <br>
+	<span v-html="banana"></span>
+	<hr>
+	v-bind指令 绑定活的属性
+	<!--	<div class="className"></div>   拿不到 -->
+	<!--	<div class="{{className}}"></div> 拿不到-->
+	<div v-bind:class="className"></div>
+	
+	<hr>
+	v-on 事件监听器 <br>
+	<button v-on:click="count">{{countnum}}</button>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: "#dataApp",
+    data: {
+      date: new Date(),
+      apple: '苹果',
+      banana: '<span style="color: red">香蕉 </span>',
+      className: 'transRed',
+      countnum: 0 //初始值
+    },
+    //老是搞不懂 mounted 和 methods的区别
+    methods: {
+      count: function () {
+        this.countnum = this.countnum + 1
+      }
+    }
+
+  })
+</script>
+</body>
+</html>
