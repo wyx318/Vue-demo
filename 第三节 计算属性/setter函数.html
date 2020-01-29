@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>setter属性</title>
+</head>
+<body>
+<div id="app">
+	我的名字是-----{{fullName}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      firstName: 'zhang',
+      lastName: 'sanfeng'
+    },
+    computed: {
+      // 计算属性的默认用法是 getter函数
+      // fullName: function () {
+      //   return this.firstName + ' ' + this.lastName
+      // }
+      fullName: {
+        get: function () {
+          return this.firstName + ' ' + this.lastName
+        },
+        set: function (newValue) {
+          //用逗号分隔
+          var names = newValue.split('.') //分隔为数组
+          this.fIrstName = names[0];
+          this.lastName = names[1]
+        }
+      }
+    }
+  })
+</script>
+</body>
+</html>

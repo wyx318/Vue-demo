@@ -19,6 +19,7 @@
       text: '123.456.789'
     },
     computed: {
+      //如果计算属性 直接给一个function 默认的就是getter函数
       reverseText: function () {
         return this.text.split('.').reverse().join('.')
       }
