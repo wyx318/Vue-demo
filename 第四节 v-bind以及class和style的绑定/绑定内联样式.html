@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>绑定class对象语法</title>
+</head>
+<body>
+<div id="app">
+	绑定内联样式：键代表style的属性，值就代表属性对应的值了 <br>
+	切记： vue中只要是大写字母，都会给你转换成加 -小写 fontSize ==> font-size hghghGGHHHkkki ====>hghg-g-g-h-g-gkkki
+	style对象语法 <br>
+	<div :style="{'color':color,'fontSize':fontSize+'px'}">举杯邀明月，对影成三人。</div>
+	style数组语法 <br>
+	<div :style="[styleA,styleB]">举杯邀明月，对影成三人。</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      color: 'red',
+      fontSize: 25
+    },
+  })
+</script>
+</body>
+</html>

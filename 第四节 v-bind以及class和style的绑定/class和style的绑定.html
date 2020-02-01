@@ -15,6 +15,14 @@
 		.btnBackground {
 			background: deeppink;
 			}
+		.active {
+			background: orangered;
+			width: 100px;
+			height: 100px;
+			}
+		.error {
+			border: 5px solid blue;
+			}
 	</style>
 </head>
 <body>
@@ -23,6 +31,9 @@
 	<div v-bind:class="{divstyle:isActive,borderstyle:isBorder}"></div>
 	<hr>
 	<input type="button" value="点我换背景" :class="{btnBackground:isback}" v-on:click="changeColor">
+	<hr>
+	<!--	绑定class数组语法 数组中的成员直接对应类名-->
+	<div :class="[activeClass,errorClass]"></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
 <script>
@@ -32,7 +43,10 @@
     data: {
       isActive: true,
       isBorder: false,
-      isback: true
+      isback: true,
+      //绑定class数组语法 数组中的成员直接对应类名
+      activeClass: 'active',
+      errorClass: 'error'
     },
     methods: {
       changeColor: function () {
