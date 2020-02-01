@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绑定class对象语法</title>
+	<style>
+		.divstyle {
+			background: red;
+			width: 100px;
+			height: 100px;
+			}
+		.borderstyle {
+			border: 2px solid black;
+			}
+		.btnBackground {
+			background: deeppink;
+			}
+	</style>
+</head>
+<body>
+<div id="app">
+	绑定class对象语法 对象的键是类名 值是布尔值 ： <br>
+	<div v-bind:class="{divstyle:isActive,borderstyle:isBorder}"></div>
+	<hr>
+	<input type="button" value="点我换背景" :class="{btnBackground:isback}" v-on:click="changeColor">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  //需求 点击切换按钮的颜色
+  var app = new Vue({
+    el: '#app',
+    data: {
+      isActive: true,
+      isBorder: false,
+      isback: true
+    },
+    methods: {
+      changeColor: function () {
+        this.isback = !this.isback
+      }
+    }
+  })
+</script>
+</body>
+</html>
