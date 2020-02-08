@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性</title>
+</head>
+<body>
+<div id="app">
+	v-for的用法 ： 一定写在要遍历的元素上，v-for后面要接上等号 遍历多个对象的用法
+	<ul>
+		<li v-for="vueMth in vueMethods">{{vueMth.name}}</li>
+	</ul>
+	<br>
+	带索引的用法 ：
+	<ul>
+		<li v-for="(vueMth,index) in vueMethods">{{index}}-----{{vueMth.name}}</li>
+	</ul>
+	<hr>
+	遍历1个对象多个场景
+	<ul>
+		<li v-for="value in nvshen">{{value}}</li>
+	</ul>
+	<br>
+	拿到value key index 的写法
+	<ul>
+		<li v-for="(value,key,index) in nvshen">{{value}}---{{key}}----{{index}}</li>
+	</ul>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      vueMethods: [
+        {
+          name: '1',
+
+        },
+        {
+          name: '2',
+        },
+        {
+          name: '3'
+        }
+      ],
+      nvshen: {
+        girll1: '小花',
+        girll2: '曼曼',
+        girll3: '未知'
+      }
+    },
+  })
+</script>
+</body>
+</html>
