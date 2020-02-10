@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性</title>
+</head>
+<body>
+<div id="app">
+	{{nvshen}}
+	<button @click="sortArr">点击</button>
+	<br>
+	<button @click="reveseArr">点击a</button>
+	<br>
+	字符串中含有cc的项
+	{{matoo}}
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      nvshen: ['abs', 'ccd', 'ss']
+    },
+    computed: {
+      matoo: function () {
+        return this.nvshen.filter(function (c) {
+          return c.match(/cc/)
+        })
+      }
+    },
+    methods: {
+      sortArr: function () {
+        this.nvshen.sort(function (a, b) {
+          return a.length - b.length
+        })
+      },
+      reveseArr: function () {
+        this.nvshen.reverse()
+      }
+    }
+  })
+</script>
+</body>
+</html>
